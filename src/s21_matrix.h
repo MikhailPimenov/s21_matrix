@@ -1,6 +1,13 @@
 #ifndef SRC_S21_MATRIX_H_
 #define SRC_S21_MATRIX_H_
 
+
+enum Errors {
+    OK = 0,
+    INCORRECT_MATRIX = 1,
+    CALCULATION_ERROR = 2,
+};
+
 typedef struct matrix_struct {
     double** matrix;
     int rows;
