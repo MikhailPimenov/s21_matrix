@@ -4,7 +4,7 @@
 
 int main() {
     printf("Testing without check...\n");
-    create_matrix_tests(s21_create_matrix);
+    create_matrix_tests(s21_create_matrix, "s21_create_matrix(int rows, int columns, matrix*)");
     printf("Testing is ended\n");
     return 0;
 }

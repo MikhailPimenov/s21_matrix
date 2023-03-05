@@ -35,12 +35,16 @@ tests/s21_all_tests.o: tests/s21_all_tests.c s21_matrix.h
 # $(CC) -c $(GCOVR_CFLAGS) $(CHECK_LFLAGS) $< -o $@
 		$(CC) -c $< -o $@ $(STRICT_CFLAGS) $(CHECK_CFLAGS)
 
+
+s21_create_matrix.o: s21_create_matrix.c s21_matrix.h
+		$(CC) -c $(STRICT_CFLAGS) $< -o $@ $(GCOVR_CFLAGS)
+s21_remove_matrix.o: s21_remove_matrix.c s21_matrix.h
+		$(CC) -c $(STRICT_CFLAGS) $< -o $@ $(GCOVR_CFLAGS)
 s21_eq_matrix.o: s21_eq_matrix.c s21_matrix.h
 		$(CC) -c $(STRICT_CFLAGS) $< -o $@ $(GCOVR_CFLAGS)
 
-s21_create_matrix.o: s21_create_matrix.c s21_matrix.h
-		$(CC) -c $(STRICT_CFLAGS) $< -o $@ 
 # $(GCOVR_CFLAGS)
+
 create_matrix_tests.o: tests/create_matrix_tests.c tests/all_tests_without_check.h
 		$(CC) -c $(STRICT_CFLAGS) $< -o $@
 
@@ -56,13 +60,13 @@ clean:
 		rm -f tests/*.gcda
 		rm -f tests/*.gcno
 		rm -f test.out
-
+		rm -f *.out
 
 tests_no_check:	tests_no_check.out
 		-./tests_no_check.out
 
-tests_no_check.out: s21_create_matrix.o all_tests_without_check.o create_matrix_tests.o print_matrix.o
-		$(CC) -o $@ $^
+tests_no_check.out: s21_create_matrix.o s21_remove_matrix.o all_tests_without_check.o create_matrix_tests.o print_matrix.o
+		$(CC) -o $@ $^ $(GCOVR_LFLAGS)
 
 all_tests_without_check.o: tests/all_tests_without_check.c tests/all_tests_without_check.h
-		$(CC) -c $< -o $@ $(STRICT_CFLAGS)
+		$(CC) -c $< -o $@ $(STRICT_CFLAGS) 

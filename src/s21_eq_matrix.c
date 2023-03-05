@@ -7,12 +7,22 @@ enum Result {
     EQUAL = 1,
 };
 
-int s21_eq_matrix(matrix_t* a, matrix_t* b, int number) {
-    printf("1111\n");
-    printf("2222\n");
-    printf("3333\n");
-    printf("4444\n");
-    printf("number = %d\n", number);
+static const double s_epsilon = 1e-8;
+static int __are_equal(double a, double b, double epsilon) {
+    if (a < b)
+        return b - a < epsilon;
+    else
+        return a - b < epsilon;
+}
+static int __not_equal(double a, double b, double epsilon) {
+    return !__are_equal(a, b, epsilon);
+}
+
+int s21_eq_matrix(matrix_t* a, matrix_t* b) {
+    // printf("1111\n");
+    // printf("2222\n");
+    // printf("3333\n");
+    // printf("4444\n");
     // assert(0 && "inside s21_eq_matrix!!!!!!!!");
 
     if (!a || !b)
@@ -23,8 +33,7 @@ int s21_eq_matrix(matrix_t* a, matrix_t* b, int number) {
 
     for (int row = 0; row < a->rows; ++row)
        for (int column = 0; column < a->columns; ++column)
-        //    if (not_equal(a->matrix[row][column], b->matrix[row][column]))
-           if (a->matrix[row][column] != b->matrix[row][column])
+           if (not_equal(a->matrix[row][column], b->matrix[row][column], s_epsilon))
                return NOT_EQUAL;
 
     return EQUAL;

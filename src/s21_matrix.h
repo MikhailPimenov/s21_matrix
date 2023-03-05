@@ -20,8 +20,7 @@ void s21_remove_matrix(matrix_t* a);
 #define SUCCESS 1
 #define FAILURE 0
 
-// int s21_eq_matrix(matrix_t* a, matrix_t* b);
-int s21_eq_matrix(matrix_t* a, matrix_t* b, int number);
+int s21_eq_matrix(matrix_t* a, matrix_t* b);
 int s21_sum_matrix(matrix_t* a, matrix_t* b, matrix_t* result);
 int s21_sub_matrix(matrix_t* a, matrix_t* b, matrix_t* result);
 int s21_mult_number(matrix_t* a, double number, matrix_t* result);
