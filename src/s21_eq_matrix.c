@@ -8,14 +8,14 @@ enum Result {
 };
 
 static const double s_epsilon = 1e-8;
-static int __are_equal(double a, double b, double epsilon) {
+static int are_equal(double a, double b, double epsilon) {
     if (a < b)
         return b - a < epsilon;
     else
         return a - b < epsilon;
 }
-static int __not_equal(double a, double b, double epsilon) {
-    return !__are_equal(a, b, epsilon);
+static int not_equal(double a, double b, double epsilon) {
+    return !are_equal(a, b, epsilon);
 }
 
 int s21_eq_matrix(matrix_t* a, matrix_t* b) {
