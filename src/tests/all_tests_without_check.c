@@ -11,6 +11,7 @@ int main() {
     mult_number_tests(s21_mult_number, "s21_mult_number(const matrix_t*, double, matrix_t*)");
     mult_matrix_tests(s21_mult_matrix, "s21_mult_matrix(const matrix_t*, const matrix_t*, matrix_t*)");
     transpose_tests(s21_transpose, "s21_transpose(const matrix_t*, matrix_t*)");
+    determinant_tests(s21_determinant, "s21_determinant(const matrix_t*, double*)");
     printf("Testing is ended\n");
     return 0;
 }
