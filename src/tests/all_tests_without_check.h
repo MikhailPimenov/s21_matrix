@@ -7,5 +7,6 @@ void create_matrix_tests(int algorithm(int, int, matrix_t*), const char* functio
 void eq_matrix_tests(int algorithm(matrix_t*, matrix_t*), const char* function_name);
 void sum_matrix_tests(int algorithm(matrix_t*, matrix_t*, matrix_t*), const char* function_name);
 void sub_matrix_tests(int algorithm(matrix_t*, matrix_t*, matrix_t*), const char* function_name);
+void mult_number_tests(int algorithm(matrix_t*, double, matrix_t*), const char* function_name);
 
 #endif  //  SRC_TESTS_ALL_TESTS_WITHOUT_CHECK_H_
