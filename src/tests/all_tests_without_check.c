@@ -9,6 +9,7 @@ int main() {
     sum_matrix_tests(s21_sum_matrix, "s21_sum_matrix(const matrix_t*, const matrix_t*, matrix_t*)");
     sub_matrix_tests(s21_sub_matrix, "s21_sub_matrix(const matrix_t*, const matrix_t*, matrix_t*)");
     mult_number_tests(s21_mult_number, "s21_mult_number(const matrix_t*, double, matrix_t*)");
+    mult_matrix_tests(s21_mult_matrix, "s21_mult_matrix(const matrix_t*, const matrix_t*, matrix_t*)");
     printf("Testing is ended\n");
     return 0;
 }
