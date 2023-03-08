@@ -19,16 +19,10 @@ static int not_equal(double a, double b, double epsilon) {
 }
 
 int s21_eq_matrix(matrix_t* a, matrix_t* b) {
-    // printf("1111\n");
-    // printf("2222\n");
-    // printf("3333\n");
-    // printf("4444\n");
-    // assert(0 && "inside s21_eq_matrix!!!!!!!!");
-
     if (!a || !b)
         return NOT_EQUAL;
 
-    if (a->rows != b->rows || a->columns != b->rows)
+    if (a->rows != b->rows || a->columns != b->columns)
         return NOT_EQUAL;
 
     for (int row = 0; row < a->rows; ++row)
