@@ -31,11 +31,11 @@ test: test.out
 		-./test.out
 
 
-test.out: tests/s21_all_tests.o s21_eq_matrix.o
+test.out: tests_no_check/s21_all_tests.o s21_eq_matrix.o
 		$(CC) $^ -o $@ $(GCOVR_LFLAGS) $(CHECK_LFLAGS)
 		-./test.out
 
-tests/s21_all_tests.o: tests/s21_all_tests.c s21_matrix.h
+tests/s21_all_tests.o: tests_no_check/s21_all_tests.c s21_matrix.h
 # $(CC) -c $(GCOVR_CFLAGS) $(CHECK_LFLAGS) $< -o $@
 		$(CC) -c $< -o $@ $(STRICT_CFLAGS) $(CHECK_CFLAGS)
 
@@ -66,29 +66,29 @@ s21_inverse_matrix.o: s21_inverse_matrix.c s21_matrix.h
 
 # $(GCOVR_CFLAGS)
 
-create_matrix_tests.o: tests/create_matrix_tests.c tests/all_tests_without_check.h
+create_matrix_tests.o: tests_no_check/create_matrix_tests.c tests_no_check/all_tests_without_check.h
 		$(CC) -c $(STRICT_CFLAGS) $< -o $@
-eq_matrix_tests.o: tests/eq_matrix_tests.c tests/all_tests_without_check.h
+eq_matrix_tests.o: tests_no_check/eq_matrix_tests.c tests_no_check/all_tests_without_check.h
 		$(CC) -c $(STRICT_CFLAGS) $< -o $@
-sum_matrix_tests.o: tests/sum_matrix_tests.c tests/all_tests_without_check.h
+sum_matrix_tests.o: tests_no_check/sum_matrix_tests.c tests_no_check/all_tests_without_check.h
 		$(CC) -c $(STRICT_CFLAGS) $< -o $@
-sub_matrix_tests.o: tests/sub_matrix_tests.c tests/all_tests_without_check.h
+sub_matrix_tests.o: tests_no_check/sub_matrix_tests.c tests_no_check/all_tests_without_check.h
 		$(CC) -c $(STRICT_CFLAGS) $< -o $@
-mult_number_tests.o: tests/mult_number_tests.c tests/all_tests_without_check.h
+mult_number_tests.o: tests_no_check/mult_number_tests.c tests_no_check/all_tests_without_check.h
 		$(CC) -c $(STRICT_CFLAGS) $< -o $@
-mult_matrix_tests.o: tests/mult_matrix_tests.c tests/all_tests_without_check.h
+mult_matrix_tests.o: tests_no_check/mult_matrix_tests.c tests_no_check/all_tests_without_check.h
 		$(CC) -c $(STRICT_CFLAGS) $< -o $@
-transpose_tests.o: tests/transpose_tests.c tests/all_tests_without_check.h
+transpose_tests.o: tests_no_check/transpose_tests.c tests_no_check/all_tests_without_check.h
 		$(CC) -c $(STRICT_CFLAGS) $< -o $@
-determinant_tests.o: tests/determinant_tests.c tests/all_tests_without_check.h
+determinant_tests.o: tests_no_check/determinant_tests.c tests_no_check/all_tests_without_check.h
 		$(CC) -c $(STRICT_CFLAGS) $< -o $@
-calc_complements_tests.o: tests/calc_complements_tests.c s21_matrix.h
+calc_complements_tests.o: tests_no_check/calc_complements_tests.c tests_no_check/all_tests_without_check.h
 		$(CC) -c $(STRICT_CFLAGS) $< -o $@
-inverse_matrix_tests.o: tests/inverse_matrix_tests.c s21_matrix.h
+inverse_matrix_tests.o: tests_no_check/inverse_matrix_tests.c tests_no_check/all_tests_without_check.h
 		$(CC) -c $(STRICT_CFLAGS) $< -o $@
 
 
-print_matrix.o: tests/print_matrix.c tests/print_matrix.h
+print_matrix.o: tests_no_check/print_matrix.c tests_no_check/print_matrix.h
 		$(CC) -c $(STRICT_CFLAGS) $< -o $@
 
 clean:
@@ -108,5 +108,5 @@ tests_no_check:	tests_no_check.out
 tests_no_check.out: s21_create_matrix.o s21_remove_matrix.o all_tests_without_check.o create_matrix_tests.o print_matrix.o s21_eq_matrix.o eq_matrix_tests.o s21_sum_matrix.o sum_matrix_tests.o s21_sub_matrix.o sub_matrix_tests.o s21_mult_number.o mult_number_tests.o s21_mult_matrix.o mult_matrix_tests.o transpose_tests.o s21_transpose.o s21_determinant.o determinant_tests.o s21_calc_complements.o calc_complements_tests.o s21_inverse_matrix.o inverse_matrix_tests.o
 		$(CC) -o $@ $^ $(GCOVR_LFLAGS)
 
-all_tests_without_check.o: tests/all_tests_without_check.c tests/all_tests_without_check.h
+all_tests_without_check.o: tests_no_check/all_tests_without_check.c tests_no_check/all_tests_without_check.h
 		$(CC) -c $< -o $@ $(STRICT_CFLAGS) 
