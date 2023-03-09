@@ -5,13 +5,13 @@ static double determinant2x2(double a00, double a01, double a10, double a11) {
     return a00 * a11 - a01 * a10;
 }
 
-static int sign(int rows, int columns) {
+int sign(int rows, int columns) {
     if ((rows + columns) % 2)
         return -1;
     return 1;
 }
 
-static void get_little_matrix(const matrix_t* a, int row_to_exclude, int column_to_exclude, matrix_t* result) {
+void get_little_matrix(const matrix_t* a, int row_to_exclude, int column_to_exclude, matrix_t* result) {
     assert(row_to_exclude < a->rows && column_to_exclude < a->columns && "Row or column is out of range for submatrix!");
 
     int row_result = 0;

@@ -12,6 +12,7 @@ int main() {
     mult_matrix_tests(s21_mult_matrix, "s21_mult_matrix(const matrix_t*, const matrix_t*, matrix_t*)");
     transpose_tests(s21_transpose, "s21_transpose(const matrix_t*, matrix_t*)");
     determinant_tests(s21_determinant, "s21_determinant(const matrix_t*, double*)");
+    calc_complements_tests(s21_calc_complements, "s21_calc_complements(const matrix_t*, matrix_t*)");
     printf("Testing is ended\n");
     return 0;
 }
