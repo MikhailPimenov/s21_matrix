@@ -34,7 +34,7 @@ void determinant_tests(int algorithm(const matrix_t*, double*), const char* func
     }
     ++test_number;
 
-    {//0========================================
+    {//1========================================
         matrix_t m;
 
         s21_create_matrix(2, 2, &m);
@@ -62,7 +62,7 @@ void determinant_tests(int algorithm(const matrix_t*, double*), const char* func
     ++test_number;
 
 
-    {//0========================================
+    {//2========================================
         matrix_t m;
 
         s21_create_matrix(3, 3, &m);
@@ -95,7 +95,7 @@ void determinant_tests(int algorithm(const matrix_t*, double*), const char* func
     ++test_number;
 
 
-    {//2========================================
+    {//3========================================
         matrix_t m;
 
         s21_create_matrix(2, 2, &m);
@@ -123,7 +123,7 @@ void determinant_tests(int algorithm(const matrix_t*, double*), const char* func
     ++test_number;
 
 
-    {//3========================================
+    {//4========================================
         matrix_t m;
 
         s21_create_matrix(4, 4, &m);
@@ -164,7 +164,7 @@ void determinant_tests(int algorithm(const matrix_t*, double*), const char* func
     ++test_number;
 
 
-    {//4========================================
+    {//5========================================
         matrix_t m;
 
         s21_create_matrix(5, 5, &m);
@@ -212,7 +212,7 @@ void determinant_tests(int algorithm(const matrix_t*, double*), const char* func
     }
     ++test_number;
 
-    {//5========================================
+    {//6========================================
         matrix_t m;
 
         s21_create_matrix(5, 5, &m);
